@@ -1,0 +1,1036 @@
+{% load staticfiles %}
+der-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        header {
+            z-index: 999;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 200px;
+            transition: 0.5s ease;
+        }
+
+        header .brand {
+            color: #fff;
+            font-size: 1.5em;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+
+        header .navigation {
+            position: relative;
+        }
+
+        header .navigation .navigation-items a {
+            position: relative;
+            color: #fff;
+            font-size: 1em;
+            font-weight: 500;
+            text-decoration: none;
+            margin-left: 30px;
+            transition: 0.3s ease;
+        }
+
+        header .navigation .navigation-items a::before {
+            content: '';
+            position: absolute;
+            background: #fff;
+            width: 0;
+            height: 1px;
+            bottom: 0;
+            left: 0;
+            transition: 0.3s ease;
+        }
+
+        header .navigation .navigation-items a:hover::before {
+            width: 100%;
+        }
+
+        section {
+            padding: 100px 200px;
+        }
+
+        .home {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            background: #2696e9;
+        }
+
+        .home::before {
+            z-index: 777;
+            content: '';
+            position: absolute;
+            background: rgba(3, 96, 251, 0.25);
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .home .content {
+            z-index: 888;
+            color: #fff;
+            width: 70%;
+            margin-top: 50px;
+            display: none;
+        }
+
+        .home .content.active {
+            display: block;
+        }
+
+        .home .content h1 {
+            font-size: 4em;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            line-height: 75px;
+            margin-bottom: 40px;
+        }
+
+        .home .content h1 span {
+            font-size: 1.2em !important;
+            font-weight: 300;
+        }
+
+        .home .content p {
+            margin-bottom: 65px;
+        }
+
+        .home .content a {
+            background: #fff;
+            padding: 15px 35px;
+            color: #1680ac;
+            font-size: 1.1em;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .home .media-icons {
+            z-index: 888;
+            position: absolute;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            transition: 0.5s ease;
+        }
+
+        .home .media-icons a {
+            color: #fff;
+            font-size: 1.6em;
+            transition: 0.5s ease;
+        }
+
+        .home .media-icons a:not(:last-child) {
+            margin-bottom: 20px;
+        }
+
+        .home .media-icons a:hover {
+            transform: scale(1.3);
+        }
+
+        .home video {
+            z-index: 000;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slider-navigation {
+            z-index: 888;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: translateY(80px);
+            margin-bottom: 12px;
+        }
+
+        .slider-navigation .nav-btn {
+            width: 12px;
+            height: 12px;
+            background: #fff;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
+            transform: 0.3s ease;
+        }
+
+        .slider-navigation .nav-btn:not(:last-child) {
+            margin-right: 20px;
+        }
+
+        .slider-navigation .nav-btn:hover {
+            transform: scale(1.2);
+        }
+
+        .slider-navigation .nav-btn.active {
+            background: #2696e9;
+        }
+
+        .video-slide {
+            position: absolute;
+            width: 100%;
+            clip-path: circle(0% at 50% 50%);
+        }
+
+        .video-slide.active {
+            clip-path: circle(150% at 50% 50%);
+            transition: 2s ease;
+            transition-property: clip-path;
+        }
+
+        @media (max-width: 1040px) {
+            header {
+
+                padding: 12px 20px;
+                transition: 0.5s ease;
+            }
+
+            header .navigation {
+                display: none;
+                transition: 0.5s ease;
+            }
+
+            header .navigation.active {
+                position: fixed;
+                width: 100%;
+                height: 100vh;
+                top: 0;
+                left: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: rgba(1, 1, 1, 0.5);
+            }
+
+            header .navigation .navigation-items a {
+                color: #222;
+                font-size: 1.2em;
+                margin: 20px;
+            }
+
+            header .navigation .navigation-items a:before {
+                background: #222;
+                height: 1px;
+            }
+
+            header .navigation.active .navigation-items {
+                background: #fff;
+                width: 600px;
+                /* height: 100vh; */
+                max-width: 600px;
+                margin: 20px;
+                padding: 40px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                border-radius: 5px;
+                box-shadow: 0 5px 25px rgb(1 1 1 / 20%);
+            }
+
+            .menu-btn {
+                background: url("./img/1-removebg-preview.png") no-repeat;
+                background-size: 30px;
+                background-position: center;
+                width: 40px;
+                height: 40px;
+                cursor: pointer;
+                transition: 0.5s ease;
+            }
+
+            .menu-btn.active {
+                z-index: 999;
+                background: url("./img/close.png") no-repeat;
+                background-size: 25px;
+                background-position: center;
+                cursor: pointer;
+                transition: 0.5s ease;
+            }
+
+            section {
+                padding: 100px 20px;
+            }
+
+            .home .media-icons {
+                right: 15px;
+            }
+        }
+
+
+        .work {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .background1 {
+            background: url("{% static 'music/img/b1.jpg' %}");
+            min-height: 100vh;
+            min-width: 100vw;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        .quote {
+            height: auto;
+            width: 70vh;
+            padding: 30px;
+            font-size: 30px;
+            text-align: center;
+            opacity: 0.8;
+            margin-top: -30vh;
+            border-radius: 10px;
+            background: #fff;
+            color: #9966cc;
+        }
+
+        .background2 {
+            background: url("{% static 'music/img/b2.jpg' %}");
+            min-height: 100vh;
+            min-width: 100vw;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        .background3 {
+            background: url("{% static 'music/img/b3.jpg' %}");
+            min-height: 100vh;
+            min-width: 100vw;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        .background4 {
+            background: url("{% static 'music/img/b4.jpg' %}");
+            min-height: 100vh;
+            min-width: 100vw;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        .work {
+            min-height: 100vh;
+            min-width: 100vw;
+        }
+
+        /* 3d slider */
+
+
+        .c {
+            overflow: hidden;
+            margin: 0;
+            background: #EEE;
+            user-select: none;
+            font-family: sans-serif;
+
+        }
+
+        #slider {
+            position: relative;
+            width: 25%;
+            height: 40vw;
+            margin: 100px auto;
+            display: flex;
+            perspective: 1400px;
+            transform-style: preserve-3d;
+        }
+
+        #slider label,
+        #slider label img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            color: white;
+            font-size: 70px;
+            font-weight: bold;
+            border-radius: 3px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 400ms ease;
+        }
+
+        input[type=radio] {
+            position: relative;
+            top: 158%;
+            left: 50%;
+            width: 18px;
+            height: 18px;
+            margin: 0 15px 0 0;
+            opacity: 1;
+            transform: translateX(-83px);
+            cursor: pointer;
+        }
+
+        #s1:checked~#slide1,
+        #s2:checked~#slide2,
+        #s3:checked~#slide3,
+        #s4:checked~#slide4,
+        #s5:checked~#slide5 {
+            box-shadow: 0 13px 26px rgba(0, 0, 0, 0.3), 0 12px 6px rgba(0, 0, 0, 0.2);
+            transform: translate3d(0%, 0, 0px);
+        }
+
+        #s1:checked~#slide2,
+        #s2:checked~#slide3,
+        #s3:checked~#slide4,
+        #s4:checked~#slide5,
+        #s5:checked~#slide1 {
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3), 0 2px 2px rgba(0, 0, 0, 0.2);
+            transform: translate3d(70%, 0, -430px);
+        }
+
+        #s1:checked~#slide3,
+        #s2:checked~#slide4,
+        #s3:checked~#slide5,
+        #s4:checked~#slide1,
+        #s5:checked~#slide2 {
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+            transform: translate3d(140%, 0, -730px);
+        }
+
+        #s1:checked~#slide5,
+        #s2:checked~#slide1,
+        #s3:checked~#slide2,
+        #s4:checked~#slide3,
+        #s5:checked~#slide4 {
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3), 0 2px 2px rgba(0, 0, 0, 0.2);
+            transform: translate3d(-70%, 0, -430px);
+        }
+
+        #s1:checked~#slide4,
+        #s2:checked~#slide5,
+        #s3:checked~#slide1,
+        #s4:checked~#slide2,
+        #s5:checked~#slide3 {
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+            transform: translate3d(-140%, 0, -730px);
+        }
+
+
+
+
+
+        /* footer */
+        .footer {
+            background-color: black;
+            color: white;
+            flex-wrap: wrap;
+            bottom: 0;
+            display: flex;
+            justify-content: center;
+            /* align-items: center; */
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer a:focus {
+            outline: none;
+        }
+
+        .col5 {
+            flex-basis: 15%;
+            margin: 3vh;
+            margin-top: 15vh;
+            margin-bottom: 15vh;
+        }
+
+        .col5 .flex {
+            display: flex;
+            align-items: center;
+            /* justify-content: center; */
+        }
+
+        .col5 .flex a:nth-child(1) {
+            margin-right: 1vw;
+            margin-top: 2vh;
+        }
+
+        .footer .col5 a {
+            display: block;
+        }
+
+        .col5 .flex a:nth-child(2) {
+            margin-left: 1vw;
+            margin-right: 1vw;
+            margin-top: 2vh;
+        }
+
+        .col5 .flex a:nth-child(3) {
+            margin-left: 1vw;
+            margin-top: 2vh;
+        }
+
+        .col5 .flex a i {
+            font-size: 25px;
+        }
+
+        .footer__heading {
+            font-size: 18px;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 600;
+        }
+
+        .footer__links {
+            margin-top: 3vh;
+            margin-bottom: 3vh;
+            font-size: 14px;
+            font-family: 'Open Sans', sans-serif;
+            transition: color 0.5s ease;
+        }
+
+        .footer__links:hover {
+            color: lightgray;
+        }
+
+        .copyright {
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: center;
+            font-size: 10px;
+            /* align-items: center; */
+        }
+
+        .copyright hr {
+            color: white;
+            border: 1px solid #fff;
+            width: 90vw;
+            text-decoration: none;
+        }
+
+
+
+        /* about us page  */
+        .about {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #333;
+            flex-wrap: wrap;
+        }
+
+        .cardholder {
+            flex-basis: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: none !important;
+        }
+
+        @media screen and (max-width: 912px) {
+            .cardholder {
+                flex-basis: 100%;
+            }
+        }
+
+        .card1 {
+            position: relative;
+            margin-top: 20vh;
+            width: 350px;
+            height: 190px;
+            background: #333;
+            transition: all 0.5s;
+            overflow-x: none !important;
+        }
+
+        .card1:hover {
+            height: 350px;
+        }
+
+        .card1 .lines {
+            position: absolute;
+            inset: 0;
+            background: #000;
+            overflow: hidden;
+            overflow-x: none !important;
+        }
+
+        .card1 .lines::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 120px;
+            background: linear-gradient(transparent, #45f3ff, #45f3ff, #45f3ff, transparent);
+            animation: animate 4s linear infinite;
+        }
+
+        @keyframes animate {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        @keyframes animate2 {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(-50%, -50%) rotate(-360deg);
+            }
+        }
+
+        .card1 .lines::after {
+            content: '';
+            position: absolute;
+            inset: 3px;
+            background: #292929;
+        }
+
+        .card1 .imgbx {
+            position: absolute;
+            top: -50%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            margin-top: 3rem;
+            height: 120px;
+            background: #000;
+            transition: all 0.5s;
+            z-index: 10;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card1:hover .imgbx {
+            width: 180px;
+            height: 180px;
+        }
+
+        .card1 .imgbx::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 90px;
+            background: linear-gradient(transparent, #ff3c7b, #ff3c7b, #ff3c7b, transparent);
+            animation: animate2 6s linear infinite;
+        }
+
+        .card1 .imgbx::after {
+            content: '';
+            position: absolute;
+            inset: 3px;
+            background: #292929;
+        }
+
+        .card1 .imgbx img {
+            position: absolute;
+            top: 10px;
+            z-index: 1;
+            width: calc(100% - 20px);
+            height: calc(100% - 20px);
+            /* filter: grayscale(1); */
+        }
+
+        .card1 .content {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            overflow: hidden;
+        }
+
+        .card1 .content .details {
+            padding: 40px;
+            text-align: center;
+            width: 100%;
+            transition: 0.5s;
+            transform: translateY(100px);
+        }
+
+        .card1:hover .content .details {
+            transform: translateY(0px);
+        }
+
+        .card1 .content .details h2 {
+            font-size: 1.25em;
+            font-weight: 600;
+            color: #45f3ff;
+            line-height: 1.2em;
+        }
+
+        .card1 .content .details h2 span {
+            font-size: 0.75em;
+            font-weight: 500;
+            color: #fff;
+        }
+
+        .card1 .content .details .data {
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+            color: white;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <a href="" class="brand">Student</a>
+        <div class="menu-btn"></div>
+        <div class="navigation">
+            <div class="navigation-items">
+                <a href="#Home">Home</a>
+                <a href="#Work">Work</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#About">About</a>
+            </div>
+        </div>
+    </header>
+    <div id="Home"></div>
+    <section class="home">
+        <video class="video-slide active" src="{% static 'music/videos background/2.mp4' %}"  autoplay muted loop></video>
+        <video class="video-slide" src="{% static 'music/videos background/3.mp4' %}" autoplay muted loop></video>
+        <video class="video-slide" src="{% static 'music/videos background/4.mp4' %}" autoplay muted loop></video>
+        <video class="video-slide" src="{% static 'music/videos background/5.mp4' %}" autoplay muted loop></video>
+        <video class="video-slide" src="{% static 'music/videos background/file.mp4' %}" autoplay muted loop></video>
+        <div class="content active">
+            <h1>Music <br><span>is Love</span></h1>
+            <p>Welcome to Genre-Classifier-website, your ultimate gateway to the enchanting realm of music genre classification! Whether you're an avid music enthusiast, a curious learner, or a passionate musician, our platform is designed to unravel the diversity of musical genres and help you explore the rich tapestry of sounds that define the global musical landscape. </p>
+            <a href="">Read More</a>
+        </div>
+        <div class="content">
+            <h1>Amazing <br><span>Island</span></h1>
+            <p>lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem
+                ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum </p>
+            <a href="">Read More</a>
+        </div>
+        <div class="content">
+            <h1>Suspesdds <br><span>Island</span></h1>
+            <p>lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem
+                ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum </p>
+            <a href="">Read More</a>
+        </div>
+        <div class="content">
+            <h1>ansdd <br><span>Island</span></h1>
+            <p>lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem
+                ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum </p>
+            <a href="">Read More</a>
+        </div>
+        <div class="content">
+            <h1>dsadasdasd <br><span>Island</span></h1>
+            <p>lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem
+                ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum </p>
+            <a href="">Read More</a>
+        </div>
+        <div class="media-icons">
+            <a href=""><i class="fab fa-facebook"></i></a>
+            <a href=""><i class="fab fa-instagram"></i></a>
+            <a href=""><i class="fab fa-twitter"></i></a>
+        </div>
+        <div class="slider-navigation">
+            <div class="nav-btn active"></div>
+            <div class="nav-btn"></div>
+            <div class="nav-btn"></div>
+            <div class="nav-btn"></div>
+            <div class="nav-btn"></div>
+        </div>
+    </section>
+
+
+    <div class="background1">
+        <div class="quote" data-aos="zoom-in">Where words leave off, music begins.</div>
+    </div>
+    <div class="work">
+        <div id="Work"></div>
+        <div id="basic-2" class="tabs">
+            <div class="container">
+                <a id="errormess"></a>
+                <div class="row">
+                    <div class="col-lg-12" style="margin-bottom: 6rem;">
+                        <a id="errormess">
+
+                            <h2>CHECK GENRE</h2>
+                            <div class="p-heading p-large">Here you can drag and drop your music file or click on the
+                                area and upload your music file to check genre of the music.</div>
+                    </div> <!-- end of col -->
+                </div>
+                <div class="row">
+                    <form action="/result" method="POST" enctype="multipart/form-data" class="up-form">
+                        {% csrf_token %}
+                        <input type="file"  name='document' multiple="" class="up-input">
+                        {{form.as_table}}
+                        <p class="up-p">Drag your music file here or click in this area.</p>
+                        <button type="submit" class="btn btn-sm btn-success"
+                            style="margin-left: 9rem; width: 30vh;">Check</button>
+
+                    </form>
+                </div> <!-- end of row -->
+            </div> <!-- end of container -->
+        </div>
+    </div>
+
+
+    <div class="background2">
+        <div class="quote" style="color: #ff2400;" data-aos="zoom-in">Go where the good vibes are</div>
+    </div>
+    <div id="gallery"></div>
+    <div class="c">
+        <section id="slider" data-aos="flip-up">
+            <input type="radio" name="slider" id="s1" checked>
+            <input type="radio" name="slider" id="s2">
+            <input type="radio" name="slider" id="s3">
+            <input type="radio" name="slider" id="s4">
+            <input type="radio" name="slider" id="s5">
+            <label for="s1" id="slide1"><img src="{% static 'music/img/1.jpg' %}" alt=""></label>
+            <label for="s2" id="slide2"><img src="{% static 'music/img/2.jpg' %}" alt=""></label>
+            <label for="s3" id="slide3"><img src="{% static 'music/img/3.jpg' %}" alt=""></label>
+            <label for="s4" id="slide4"><img src="{% static 'music/img/4.jpg' %}" alt=""></label>
+            <label for="s5" id="slide5"><img src="{% static 'music/img/6.jpg' %}" alt=""></label>
+        </section>
+    </div>
+
+    <div class="background3">
+        <div class="quote" style="color: #000;" data-aos="zoom-in">Good music, good friends, good vibes</div>
+    </div>
+
+    <div id="About"></div>
+    <div class="about">
+        <div class="cardholder" data-aos="fade-right">
+            <div class="card1">
+                <div class="lines"></div>
+                <div class="imgbx"><img src="{% static 'music/img/Aakarsh.jpg' %}" alt=""></div>
+                <div class="content">
+                    <div class="details">
+                        <h2>Aakarsh Bansal <br><span> UX/UI Designer</span><br><span> Front End Developer</span></h2>
+                        <div class="data">
+                            <h3>Btech : Nit Hamirpur</h3>
+                            <h3>Branch : Computer Engineering</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cardholder" data-aos="fade-left">
+            <div class="card1">
+                <div class="lines"></div>
+                <div class="imgbx"><img src="{% static 'music/img/sparsh.jpeg' %}" alt=""></div>
+                <div class="content">
+                    <div class="details">
+                        <h2>Sparsh Jain <br><span>Back End Django Developer</span></h2>
+                        <div class="data">
+                            <h3>Btech : Nit Hamirpur</h3>
+                            <h3>Branch : Mechanical Engineering</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="background4">
+        <div class="quote" style="color: #FFD700;" data-aos="zoom-in"> "Life is made of moments like these."</div>
+    </div>
+    <div class="footer" data-aos="fade-up">
+        <div class="col5">
+            <a href="">
+                <div class="footer__heading">About Us</div>
+            </a>
+            <a href="">
+                <div class="footer__links">Our Heritage</div>
+            </a>
+            <a href="">
+                <div class="footer__links">Our Project</div>
+            </a>
+        </div>
+        <div class="col5">
+            <a href="">
+                <div class="footer__heading">Responsibility</div>
+            </a>
+            <a href="">
+                <div class="footer__links">Community</div>
+            </a>
+            <a href="">
+                <div class="footer__links">Ethical Source</div>
+            </a>
+            <a href="">
+                <div class="footer__links">Environment</div>
+            </a>
+            <a href="">
+                <div class="footer__links">Diversity</div>
+            </a>
+        </div>
+        <div class="col5">
+            <a href="">
+                <div class="footer__heading">Quick Links</div>
+            </a>
+            <a href="">
+                <div class="footer__links">Career</div>
+            </a>
+            <a href="">
+                <div class="footer__links">Season's Gifting</div>
+            </a>
+            <a href="">
+                <div class="footer__links">FAQs</div>
+            </a>
+            <a href="">
+                <div class="footer__links">Costumer Service</div>
+            </a>
+            <a href="">
+                <div class="footer__links">Updates</div>
+            </a>
+        </div>
+        <div class="col5">
+            <a href="">
+                <div class="footer__heading">Social Media</div>
+            </a>
+            <div class="flex">
+                <a href="">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+            </div>
+            <div class="flex">
+                <a href="">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+            </div>
+        </div>
+        <div class="col5">
+            <a href="">
+                <img src="https://www.starbucks.in/assets/images/appstoreiOS.png" alt="">
+            </a>
+            <a href="">
+                <img src="https://www.starbucks.in/assets/images/appstoreAndroid.png" alt="">
+            </a>
+        </div>
+    </div>
+    <div class="copyright">
+        <hr>
+    </div>
+    <div class="copyright">© 2023 Music Genre Company. All rights reserved.</div>
+
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+
+            offset: 200, // offset (in px) from the original trigger point
+            delay: 0, // values from 0 to 3000, with step 50ms
+            duration: 600, // values from 0 to 3000, with step 50ms
+            easing: 'ease', // default easing for AOS animations
+            once: false, // whether animation should happen only once - while scrolling down
+            mirror: false, // whether elements should animate out while scrolling past them
+            anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
+
+        });
+    </script>
+
+
+    <script>
+        const menuBtn = document.querySelector(".menu-btn");
+        const navigation = document.querySelector(".navigation");
+        menuBtn.addEventListener("click", () => {
+            menuBtn.classList.toggle("active");
+            navigation.classList.toggle("active");
+        });
+    </script>
+    <!-- javascript for video slider -->
+    <script>
+        const btns = document.querySelectorAll(".nav-btn");
+        const slider = document.querySelectorAll(".video-slide");
+        const contents = document.querySelectorAll(".content");
+        var sliderNav = function (manual) {
+            btns.forEach((btn) => {
+                btn.classList.remove("active");
+            })
+
+            slider.forEach((slide) => {
+                slide.classList.remove("active");
+            })
+            contents.forEach((content) => {
+                content.classList.remove("active");
+            })
+
+            btns[manual].classList.add("active");
+            slider[manual].classList.add("active");
+            contents[manual].classList.add("active");
+        }
+        btns.forEach((btn, i) => {
+            btn.addEventListener("click", () => {
+                sliderNav(i);
+            })
+        })
+    </script>
+
+</body>
+
+</html>

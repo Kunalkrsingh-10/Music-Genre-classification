@@ -1,0 +1,43 @@
+% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Result</title>
+    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <style>
+        h1 {
+            text-align: center;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: -30vh;
+            font-size: 60px;
+        }
+
+        body {
+            overflow: hidden;
+            /* font-family: 'Lobster', cursive; */
+            font-family: 'Shadows Into Light', cursive;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            min-width: 100vw;
+            background-size:cover;
+            background-position:center;
+            background: url("{% static 'music/img/b5.jpg' %}");
+        }
+    </style>
+</head>
+
+<body>
+    <h1> your music genre is <br>{{genre}}</h1>
+</body>
+
+</html>
